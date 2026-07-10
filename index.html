@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mehedul — Video Editor & Motion Graphics Artist</title>
+<meta name="description" content="Mehedul is a professional video editor and motion graphics artist crafting cinematic commercials, YouTube content, and social reels.">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ LOADING SCREEN ============ -->
+<div id="loader">
+  <div class="loader-inner">
+    <span class="loader-mark">M.</span>
+    <div class="loader-count"><span id="loaderPercent">0</span>%</div>
+  </div>
+  <div class="loader-bar"><div class="loader-bar-fill" id="loaderFill"></div></div>
+</div>
+
+<!-- ============ CUSTOM CURSOR ============ -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- ============ SCRUB PROGRESS BAR ============ -->
+<div class="scrub-bar" aria-hidden="true">
+  <div class="scrub-track">
+    <div class="scrub-fill" id="scrubFill"></div>
+    <div class="scrub-playhead" id="scrubPlayhead"></div>
+  </div>
+</div>
+
+<!-- ============ NAVBAR ============ -->
+<header class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo">MEHEDUL<span class="dot">.</span></a>
+    <nav class="nav-links">
+      <a href="#work" data-magnetic>Work</a>
+      <a href="#about" data-magnetic>About</a>
+      <a href="#services" data-magnetic>Services</a>
+      <a href="#experience" data-magnetic>Experience</a>
+      <a href="#contact" data-magnetic>Contact</a>
+    </nav>
+    <a href="#contact" class="btn btn-small btn-outline" data-magnetic>Hire Me</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav-mobile" id="navMobile">
+    <a href="#work">Work</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero">
+  <canvas id="particleCanvas" class="hero-canvas"></canvas>
+  <div class="glow glow-a" id="glowA"></div>
+  <div class="glow glow-b" id="glowB"></div>
+
+  <div class="hero-content">
+    <p class="timecode reveal-up">00:00:00:01 — INTRO</p>
+    <h1 class="hero-title">
+      <span class="line reveal-up">My Name is</span>
+      <span class="line reveal-up hero-name">Mehedul<span class="accent-dot">.</span></span>
+    </h1>
+    <div class="role-rotator reveal-up">
+      <span class="role-prefix">I work as a</span>
+      <span class="role-text" id="roleText">Video Editor</span>
+    </div>
+    <p class="hero-desc reveal-up">
+      I cut raw footage into stories people actually feel — from cinematic commercials
+      to scroll-stopping reels — blending precise editing with motion design that moves.
+    </p>
+    <div class="hero-cta reveal-up">
+      <a href="#work" class="btn btn-primary" data-magnetic>View Portfolio</a>
+      <a href="#contact" class="btn btn-ghost" data-magnetic>Hire Me</a>
+    </div>
+  </div>
+
+  <div class="scroll-indicator">
+    <span class="scroll-mouse"><span class="scroll-wheel"></span></span>
+    <span class="scroll-label">Scroll</span>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="about" id="about">
+  <div class="container">
+    <p class="timecode">00:00:00:02 — ABOUT</p>
+    <div class="about-grid">
+      <div class="about-copy">
+        <h2 class="section-title reveal-up">The editor behind<br>the cuts.</h2>
+        <p class="reveal-up">
+          I'm Mehedul, a video editor and motion graphics artist based in Dhaka, working
+          with brands and creators worldwide. For the past five years I've lived inside
+          timelines — trimming, color grading, and animating footage until it feels
+          inevitable, like it couldn't have been cut any other way.
+        </p>
+        <p class="reveal-up">
+          My work spans commercial advertising, long-form YouTube storytelling, and the
+          fast, punchy language of short-form content. Whatever the format, the goal is
+          the same: keep the viewer's thumb still.
+        </p>
+
+        <div class="stats-grid reveal-up">
+          <div class="stat">
+            <span class="stat-num" data-count="5" data-suffix="+">0</span>
+            <span class="stat-label">Years Experience</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num" data-count="180" data-suffix="+">0</span>
+            <span class="stat-label">Projects Delivered</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num" data-count="60" data-suffix="+">0</span>
+            <span class="stat-label">Happy Clients</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num" data-count="4">0</span>
+            <span class="stat-label">Industry Awards</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-skills reveal-up">
+        <h3 class="skills-title">Toolkit</h3>
+        <ul class="skill-list">
+          <li class="skill-item">
+            <span class="skill-icon" style="--ic:#9999FF">Pr</span>
+            <div class="skill-meta">
+              <div class="skill-top"><span>Premiere Pro</span><span class="skill-pct">95%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="95"></div></div>
+            </div>
+          </li>
+          <li class="skill-item">
+            <span class="skill-icon" style="--ic:#9999FF">Ae</span>
+            <div class="skill-meta">
+              <div class="skill-top"><span>After Effects</span><span class="skill-pct">92%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="92"></div></div>
+            </div>
+          </li>
+          <li class="skill-item">
+            <span class="skill-icon" style="--ic:#EF6C4D">Dr</span>
+            <div class="skill-meta">
+              <div class="skill-top"><span>DaVinci Resolve</span><span class="skill-pct">88%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+            </div>
+          </li>
+          <li class="skill-item">
+            <span class="skill-icon" style="--ic:#31A8FF">Ps</span>
+            <div class="skill-meta">
+              <div class="skill-top"><span>Photoshop</span><span class="skill-pct">85%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+            </div>
+          </li>
+          <li class="skill-item">
+            <span class="skill-icon" style="--ic:#FF9A00">Ai</span>
+            <div class="skill-meta">
+              <div class="skill-top"><span>Illustrator</span><span class="skill-pct">78%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="78"></div></div>
+            </div>
+          </li>
+          <li class="skill-item">
+            <span class="skill-icon" style="--ic:#8B5CF6">Cc</span>
+            <div class="skill-meta">
+              <div class="skill-top"><span>CapCut</span><span class="skill-pct">90%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section class="services" id="services">
+  <div class="container">
+    <p class="timecode">00:00:00:03 — SERVICES</p>
+    <h2 class="section-title reveal-up">What I can cut<br>for you.</h2>
+
+    <div class="services-grid">
+      <article class="service-card reveal-up">
+        <svg class="service-icon" viewBox="0 0 40 40" fill="none"><path d="M6 12h20a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V15a3 3 0 0 1 3-3Z" stroke="currentColor" stroke-width="1.6"/><path d="m29 17 8-4v14l-8-4" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        <h3>Video Editing</h3>
+        <p>Full-service editing — pacing, sound design, color, and story structure — for any format or length.</p>
+      </article>
+      <article class="service-card reveal-up">
+        <svg class="service-icon" viewBox="0 0 40 40" fill="none"><path d="M20 4v6M20 30v6M4 20h6M30 20h6M9 9l4 4M27 27l4 4M31 9l-4 4M13 27l-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="20" cy="20" r="7" stroke="currentColor" stroke-width="1.6"/></svg>
+        <h3>Commercial Ads</h3>
+        <p>Polished brand and product films built to convert — from concept cut to final delivery-ready master.</p>
+      </article>
+      <article class="service-card reveal-up">
+        <svg class="service-icon" viewBox="0 0 40 40" fill="none"><rect x="8" y="6" width="24" height="28" rx="3" stroke="currentColor" stroke-width="1.6"/><path d="M15 14h10M15 20h10M15 26h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <h3>Social Media Videos</h3>
+        <p>Platform-native edits for Instagram, TikTok, and Facebook that hook attention in the first second.</p>
+      </article>
+      <article class="service-card reveal-up">
+        <svg class="service-icon" viewBox="0 0 40 40" fill="none"><rect x="4" y="10" width="32" height="20" rx="5" stroke="currentColor" stroke-width="1.6"/><path d="M16 16.5 24 20l-8 3.5v-7Z" fill="currentColor"/></svg>
+        <h3>YouTube Editing</h3>
+        <p>Long-form storytelling edits with retention-focused pacing, chapters, and thumbnail-ready moments.</p>
+      </article>
+      <article class="service-card reveal-up">
+        <svg class="service-icon" viewBox="0 0 40 40" fill="none"><path d="M6 30 16 12l6 10 4-6 8 14H6Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="13" cy="10" r="2.4" stroke="currentColor" stroke-width="1.6"/></svg>
+        <h3>Motion Graphics</h3>
+        <p>Kinetic titles, logo reveals, and animated infographics that give a project its visual signature.</p>
+      </article>
+      <article class="service-card reveal-up">
+        <svg class="service-icon" viewBox="0 0 40 40" fill="none"><rect x="10" y="5" width="20" height="30" rx="4" stroke="currentColor" stroke-width="1.6"/><path d="M17 30h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <h3>Reels &amp; Shorts</h3>
+        <p>Fast, high-retention short-form cuts engineered for the swipe-driven attention span of 2026.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PORTFOLIO ============ -->
+<section class="portfolio" id="work">
+  <div class="container">
+    <p class="timecode">00:00:00:04 — SELECTED WORK</p>
+    <h2 class="section-title reveal-up">Frames worth<br>freezing on.</h2>
+
+    <div class="filter-bar reveal-up">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="commercial">Commercial</button>
+      <button class="filter-btn" data-filter="youtube">YouTube</button>
+      <button class="filter-btn" data-filter="motion">Motion Graphics</button>
+      <button class="filter-btn" data-filter="reels">Reels</button>
+      <button class="filter-btn" data-filter="shorts">Shorts</button>
+    </div>
+
+    <div class="portfolio-grid" id="portfolioGrid">
+      <!-- cards injected by script.js from projectData, but static fallback below for no-js / SEO -->
+    </div>
+  </div>
+</section>
+
+<!-- Portfolio modal -->
+<div class="modal" id="portfolioModal">
+  <div class="modal-backdrop" data-close-modal></div>
+  <div class="modal-panel">
+    <button class="modal-close" data-close-modal aria-label="Close">&times;</button>
+    <div class="modal-video">
+      <iframe id="modalVideo" src="" title="Project video" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
+    </div>
+    <div class="modal-info">
+      <span class="modal-category" id="modalCategory">Commercial</span>
+      <h3 id="modalTitle">Project Title</h3>
+      <p id="modalDesc">Project description.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============ EXPERIENCE ============ -->
+<section class="experience" id="experience">
+  <div class="container">
+    <p class="timecode">00:00:00:05 — EXPERIENCE</p>
+    <h2 class="section-title reveal-up">Timeline of the cut.</h2>
+
+    <div class="timeline">
+      <div class="timeline-line"><div class="timeline-progress" id="timelineProgress"></div></div>
+
+      <div class="timeline-item reveal-up">
+        <div class="timeline-dot"></div>
+        <span class="timeline-date">2024 — Present</span>
+        <h3>Senior Video Editor</h3>
+        <p class="timeline-org">Freelance / Aurora Studios</p>
+        <p>Lead editor for commercial and branded content, overseeing color, sound, and motion graphics from brief to final master.</p>
+      </div>
+      <div class="timeline-item reveal-up">
+        <div class="timeline-dot"></div>
+        <span class="timeline-date">2022 — 2024</span>
+        <h3>Video Editor</h3>
+        <p class="timeline-org">Pixel Forge Media</p>
+        <p>Edited YouTube and social content for a roster of tech and lifestyle creators, growing average watch time by 34%.</p>
+      </div>
+      <div class="timeline-item reveal-up">
+        <div class="timeline-dot"></div>
+        <span class="timeline-date">2020 — 2022</span>
+        <h3>Motion Graphics Artist</h3>
+        <p class="timeline-org">ClipCraft Agency</p>
+        <p>Designed kinetic typography and animated brand identities for over 40 commercial campaigns.</p>
+      </div>
+      <div class="timeline-item reveal-up">
+        <div class="timeline-dot"></div>
+        <span class="timeline-date">2019 — 2020</span>
+        <h3>Junior Editor</h3>
+        <p class="timeline-org">Local Production House</p>
+        <p>Assisted on documentary and event edits, learning the fundamentals of pacing, sound, and color.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CLIENTS ============ -->
+<section class="clients" id="clients">
+  <div class="container">
+    <p class="timecode">00:00:00:06 — CLIENTS</p>
+    <h2 class="section-title reveal-up">Brands I've cut for.</h2>
+  </div>
+  <div class="clients-marquee">
+    <div class="marquee-track" id="marqueeTrack">
+      <span class="client-logo">NOVA</span>
+      <span class="client-logo">AURORA</span>
+      <span class="client-logo">PIXELFORGE</span>
+      <span class="client-logo">CLIPCRAFT</span>
+      <span class="client-logo">LUMEN</span>
+      <span class="client-logo">ORBIT&nbsp;CO.</span>
+      <span class="client-logo">VERTEX</span>
+      <span class="client-logo">HALO</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="testimonials" id="testimonials">
+  <div class="container">
+    <p class="timecode">00:00:00:07 — TESTIMONIALS</p>
+    <h2 class="section-title reveal-up">What clients say.</h2>
+
+    <div class="testimonial-slider">
+      <div class="testimonial-track" id="testimonialTrack">
+        <div class="testimonial-card glass active">
+          <p>"Mehedul turned three hours of raw footage into a 60-second ad that outperformed every campaign we ran that quarter. His pacing instinct is rare."</p>
+          <div class="testimonial-author">
+            <span class="author-name">Rima Chowdhury</span>
+            <span class="author-role">Marketing Lead, Nova Skincare</span>
+          </div>
+        </div>
+        <div class="testimonial-card glass">
+          <p>"He doesn't just edit — he directs the emotion of the video after the fact. Our channel's retention jumped noticeably once he came on board."</p>
+          <div class="testimonial-author">
+            <span class="author-name">Tanvir Ahmed</span>
+            <span class="author-role">Creator, Tech with Tanvir</span>
+          </div>
+        </div>
+        <div class="testimonial-card glass">
+          <p>"Fast, communicative, and genuinely talented with motion graphics. Our logo reveal is still the first thing people mention about our rebrand."</p>
+          <div class="testimonial-author">
+            <span class="author-name">Farah Islam</span>
+            <span class="author-role">Founder, Orbit Co.</span>
+          </div>
+        </div>
+        <div class="testimonial-card glass">
+          <p>"We hand him a folder of chaos every week and get back a reel that actually performs. Couldn't ask for a more reliable editor."</p>
+          <div class="testimonial-author">
+            <span class="author-name">Shafin Rahman</span>
+            <span class="author-role">Social Lead, Vertex Fitness</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-dots" id="testimonialDots"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="contact" id="contact">
+  <div class="container">
+    <p class="timecode">00:00:00:08 — CONTACT</p>
+    <div class="contact-grid">
+      <div class="contact-info reveal-up">
+        <h2 class="section-title">Let's cut<br>something great.</h2>
+        <p>Have a project in mind? Tell me about it — I usually reply within a day.</p>
+
+        <ul class="contact-list">
+          <li>
+            <span class="contact-label">Email</span>
+            <a href="mailto:hello@mehedul.studio">hello@mehedul.studio</a>
+          </li>
+          <li>
+            <span class="contact-label">WhatsApp</span>
+            <a href="https://wa.me/8801000000000" target="_blank" rel="noopener">+880 10 000 00000</a>
+          </li>
+          <li>
+            <span class="contact-label">Location</span>
+            <span>Dhaka, Bangladesh</span>
+          </li>
+        </ul>
+
+        <div class="social-row">
+          <a href="#" aria-label="Facebook" data-magnetic>FB</a>
+          <a href="#" aria-label="LinkedIn" data-magnetic>IN</a>
+          <a href="#" aria-label="Instagram" data-magnetic>IG</a>
+        </div>
+      </div>
+
+      <form class="contact-form glass reveal-up" id="contactForm">
+        <div class="form-row">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required>
+        </div>
+        <div class="form-row">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@email.com" required>
+        </div>
+        <div class="form-row">
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" name="subject" placeholder="Project type">
+        </div>
+        <div class="form-row">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="4" placeholder="Tell me about your project..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-submit" id="submitBtn" data-magnetic>
+          <span class="btn-text">Send Message</span>
+        </button>
+        <p class="form-success" id="formSuccess">Message sent — thank you! I'll get back to you soon.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <a href="#hero" class="nav-logo">MEHEDUL<span class="dot">.</span></a>
+    <nav class="footer-links">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="footer-socials">
+      <a href="#" aria-label="Facebook">FB</a>
+      <a href="#" aria-label="LinkedIn">IN</a>
+      <a href="#" aria-label="Instagram">IG</a>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© <span id="year"></span> Mehedul. All rights reserved.</span>
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+  </div>
+</footer>
+
+<!-- ============ SCRIPTS ============ -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
